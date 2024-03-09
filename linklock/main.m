@@ -1,15 +1,17 @@
 //
 //  main.m
-//  linklock
+//  LinkLock
 //
 //  Created by Turann_ on 6.03.2024.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "AppDelegate.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // Setup code that might create autoreleased objects goes here.
+        NSApplication *application = [NSApplication sharedApplication];
+        LinkLock *app = [[LinkLock alloc] init];
+        [application setDelegate:app]; // corrected delegate assignment
+        return NSApplicationMain(argc, argv);
     }
-    return NSApplicationMain(argc, argv);
 }
