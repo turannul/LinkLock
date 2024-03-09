@@ -17,7 +17,7 @@ jobs:
       - name: Build Application
         run: |
           make all
-          mv -Rv build/*.app ${{ github.workspace }}/LinkLock.app
+          cp -Rv build/*.app ${{ github.workspace }}/LinkLock.app
           sudo chmod -Rvvv 755 ${{ github.workspace }}/LinkLock.app \
           ${{ github.workspace }}/LinkLock.app/Contents \
           ${{ github.workspace }}/LinkLock.app/Contents/Info.plist \
