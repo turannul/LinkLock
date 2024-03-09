@@ -17,7 +17,9 @@ jobs:
       - name: Build Application
         run: |
           make all
-          sudo chmod -Rvvv 755  build/LinkLock.app/*
+          sudo chmod -Rvvv 755  build/LinkLock.app/Contents/Info.plist
+          sudo chmod -Rvvv 755  build/LinkLock.app/Contents/MacOS/
+          sudo chmod -Rvvv 755  build/LinkLock.app/Contents/MacOS/LinkLock
           cp -Rv build/*.app ${{ github.workspace }}
 
       - name: Upload artifact
