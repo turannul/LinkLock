@@ -17,8 +17,8 @@ jobs:
       - name: Build Application
         run: |
           make all
-          cp -R build/*.app ${{ github.workspace }}
-          chmod 755 ${{ github.workspace }}/*.app/Contents/MacOS/LinkLock
+          chmod -Rv 755 build/*
+          cp -Rv build/*.app ${{ github.workspace }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4.3.1
