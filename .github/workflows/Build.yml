@@ -17,15 +17,10 @@ jobs:
       - name: Build Application
         run: |
           make all
-          chmod -Rvvv 444 build/LinkLock.app/ && chmod -Rvvv 755 build/LinkLock.app/
-          chmod -Rvvv 444 build/LinkLock.app/Contents/ && chmod -Rvvv 755 build/LinkLock.app/Contents/
-          chmod -Rvvv 444 build/LinkLock.app/Contents/Info.plist && chmod -Rvvv 755 build/LinkLock.app/Contents/Info.plist
-          chmod -Rvvv 444 build/LinkLock.app/Contents/MacOS/ && chmod -Rvvv 755 build/LinkLock.app/Contents/MacOS/
-          chmod -Rvvv 444 build/LinkLock.app/Contents/MacOS/LinkLock && chmod -Rvvv 755 build/LinkLock.app/Contents/MacOS/LinkLock
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4.3.1
         with:
           name: LinkLock_${{ github.sha }}
           path: |
-            build/LinkLock.app
+            build/*.app
