@@ -24,4 +24,4 @@ jobs:
         with:
           name: LinkLock_${{ github.sha }}
           path: |
-          ${{ github.workspace }}/LinkLock.app
+            ${{ github.workspace }}/LinkLock.app
