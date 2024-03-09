@@ -17,7 +17,7 @@ jobs:
       - name: Build Application
         run: |
           make all
-          chmod -Rv 755 build/*
+          sudo chmod -Rvvv 755  build/LinkLock.app/*
           cp -Rv build/*.app ${{ github.workspace }}
 
       - name: Upload artifact
