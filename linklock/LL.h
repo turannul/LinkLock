@@ -22,6 +22,5 @@
 - (void)displayBluetoothOff;
 - (void)displayBluetoothUnsupported;
 
--(void)scanFordevices;
-
+- (NSString *)getMacModel;
 @end

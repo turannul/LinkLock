@@ -12,13 +12,82 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    NSString *macModel = [self getMacModel];
+    NSString *majorVersionStr = [[NSProcessInfo processInfo] operatingSystemVersion].majorVersion == 0 ? @"" : [NSString stringWithFormat:@"%ld", [[NSProcessInfo processInfo] operatingSystemVersion].majorVersion];
     NSString *minorVersionStr = [[NSProcessInfo processInfo] operatingSystemVersion].minorVersion == 0 ? @"" : [NSString stringWithFormat:@".%ld", [[NSProcessInfo processInfo] operatingSystemVersion].minorVersion];
     NSString *patchVersionStr = [[NSProcessInfo processInfo] operatingSystemVersion].patchVersion == 0 ? @"" : [NSString stringWithFormat:@".%ld", [[NSProcessInfo processInfo] operatingSystemVersion].patchVersion];
 
-    NSLog(@"Hello World, LinkLock is running on macOS %ld%@%@",
-        [[NSProcessInfo processInfo] operatingSystemVersion].majorVersion,
-        minorVersionStr,
-        patchVersionStr);
+    NSLog(@"Hello World, LinkLock is running on %@ macOS %@%@%@", macModel, majorVersionStr, minorVersionStr, patchVersionStr);
+
+    if (![self hasAccessibilityPermission]) { [self displayAccessibilityAlert]; } //. Request if not available accessibility permission
+}
+
+// * https://developer.apple.com/documentation/corebluetooth/cbmanagerstate?language=objc
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    switch (central.state) {
+      case CBManagerStateUnknown: //. 0
+            NSLog(@"Bluetooth state is unknown. (State: %ld)", (long)central.state);
+            // ! unknown state? Possibly broken hardware/software problem may cause OS to won't report any status.
+            break;
+      case CBManagerStateResetting: //. 1
+            NSLog(@"Bluetooth is resetting... (State: %ld)", (long)central.state);
+            // ! Handle resetting state (not necessary because) 
+            // ! killall -9 bluetoothd took less than a second to recover/reload on my m1 mbp
+            break;
+      case CBManagerStateUnsupported: //. 2
+            NSLog(@"This device won't support Bluetooth LE (Low Energy). (State: %ld)", (long)central.state);
+            [self displayBluetoothUnsupported];
+            break;
+      case CBManagerStateUnauthorized: //. 3
+            NSLog(@"App is not authorized to use Bluetooth. (State: %ld)", (long)central.state);
+            [self requestBluetoothPermission]; // ! Call the method above.
+            break;
+      case CBManagerStatePoweredOff: //. 4
+            NSLog(@"Bluetooth is powered off, please enable it in Settings. (State: %ld)", (long)central.state);
+            [self displayBluetoothOff];
+            // ! Handle powered off state (prompt user or disable features)
+            // ! Show dialog? or just disable features??
+            break;
+      case CBManagerStatePoweredOn: //. 5
+            NSLog(@"Bluetooth is powered on. (State: %ld)", (long)central.state);
+            [self requestBluetoothPermission];
+            break;
+    }
+}
+
+// * https://developer.apple.com/documentation/corebluetooth/cbmanagerauthorization?language=objc
+- (void)requestBluetoothPermission {
+    CBManagerAuthorization status = _centralManager.authorization;
+    // note: Processing all (4) different status will prevent crash.
+    switch (status) {
+        case CBManagerAuthorizationNotDetermined: //. 0 
+            NSLog(@"No Perm, requesting?. (Auth Status: %ld)", (long)status);
+            [_centralManager authorize]; // * Requests permission
+            break;
+        case CBManagerAuthorizationDenied: // . 2
+            NSLog(@"No Perm, declined. (Auth Status: %ld)", (long)status);
+            [self displayBluetoothAlert]; // * Show dialog
+            break;
+        case CBManagerAuthorizationAllowedAlways: // . 3
+            NSLog(@"We have bluetooth now! (Auth Status: %ld)", (long)status);
+            [_centralManager scanForPeripheralsWithServices:nil options:nil]; // * Start scanning
+            // * Start scanning for devices - Multiple references calls it peripherals
+            break;
+        case CBManagerAuthorizationRestricted: // . 4
+            NSLog(@"No Permission, restricted. (Auth Status: %ld)", (long)status);
+            [self displayBluetoothAlert];
+            // * Restricted meaning (According to Apple); In this state, the user can’t change the Bluetooth authorization status, possibly due to active restrictions such as parental controls.
+            break;
+    }
+}
+
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI error:(NSError *)error {
+    //. Peripheral has a valid name and not nil (or "null")
+    if (peripheral.name && ![peripheral.name isEqualToString:@"null"]) { // Ignore peripherals with name "null"
+        NSLog(@"Discovered device: %@, ID: %@, SQ: %@", peripheral.name, peripheral.identifier.UUIDString, RSSI);
+    } else if (error) {
+        NSLog(@"Error while discovering: %@", error);
+    }
 }
 
 - (BOOL)hasAccessibilityPermission {
@@ -26,7 +95,7 @@
     NSLog(@"Accessibility permission is %@", accessibilityAccess ? @"available" : @"N/A, no fun :(");
     return accessibilityAccess;
 }
-
+//. UI Alerts
 - (void)displayAccessibilityAlert {
     NSAlert *accessibilityAlert = [[NSAlert alloc] init];
     [accessibilityAlert setMessageText:@"Missing Accessibility permission"];
@@ -43,6 +112,7 @@
         exit(0);
     }
 }
+
 - (void)displayBluetoothAlert {
     NSAlert *bluetoothAccessAlert = [[NSAlert alloc] init];
     [bluetoothAccessAlert setMessageText:@"Missing Bluetooth permission"];
@@ -85,72 +155,19 @@
     if (response == NSAlertFirstButtonReturn) { exit(0); }
 }
 
-- (void)scanFordevices {
-    [_centralManager scanForPeripheralsWithServices:nil options:nil]; // * Start scanning
-}
-
-- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
-    NSLog(@"Discovered device: %@, ID: %@, SQ: %@", peripheral.name, peripheral.identifier.UUIDString, RSSI); // * Report scan results
-}
-
-// * Source: https://developer.apple.com/documentation/corebluetooth/cbmanagerstate?language=objc
-- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
-    switch (central.state) {
-      case CBManagerStateUnknown: // 0
-            NSLog(@"Bluetooth state is unknown. (State: %ld)", (long)central.state);
-            // ! unknown state (i guess) - is app can't/don't access bluetooth ( or broken hardware? which may not able to report status? ) 
-            break;
-      case CBManagerStateResetting: // 1
-            NSLog(@"Bluetooth is resetting... (State: %ld)", (long)central.state);
-            // ! Handle resetting state (not necessary because) 
-            // ! killall -9 bluetoothd took less than a second to recover/reload on my m1 mbp
-            break;
-      case CBManagerStateUnsupported: // 2
-            NSLog(@"This device does not support Bluetooth LE (Low Energy). (State: %ld)", (long)central.state);
-            [self displayBluetoothUnsupported];
-            break;
-      case CBManagerStateUnauthorized: // 3
-            NSLog(@"App is not authorized to use Bluetooth. (State: %ld)", (long)central.state);
-            [self requestBluetoothPermission]; // ! Call the method above.
-            break;
-      case CBManagerStatePoweredOff: // 4
-            NSLog(@"Bluetooth is powered off, please enable it in Settings. (State: %ld)", (long)central.state);
-            [self displayBluetoothOff];
-            // ! Handle powered off state (prompt user or disable features)
-            // ! Show dialog? or just disable features??
-            break;
-      case CBManagerStatePoweredOn: // 5
-            NSLog(@"Bluetooth is powered on. (State: %ld)", (long)central.state);
-            [self requestBluetoothPermission];
-            break;
-    }
-}
-
-// * Source: https://developer.apple.com/documentation/corebluetooth/cbmanagerauthorization?language=objc
-- (void)requestBluetoothPermission {
-    CBManagerAuthorization status = _centralManager.authorization;
-    // ? Processing 4 *possible* cases properly will prevent crash.
-    switch (status) {
-        case CBManagerAuthorizationNotDetermined: //. 0 
-            NSLog(@"No Perm, requesting?. (Auth Status: %ld)", (long)status);
-            [_centralManager authorize]; // ? Requests permission
-            break;
-        case CBManagerAuthorizationDenied: // . 2
-            NSLog(@"No Perm, declined. (Auth Status: %ld)", (long)status);
-            [self displayBluetoothAlert]; // ? Show dialog
-            break;
-        case CBManagerAuthorizationAllowedAlways: // . 3
-            NSLog(@"We have bluetooth now! (Auth Status: %ld)", (long)status);
-            [self scanFordevices];
-            // ? Start scanning for devices - Multiple references calls it peripherals
-            break;
-        case CBManagerAuthorizationRestricted: // . 4 ?1 not sure about that
-            NSLog(@"No Perm, restricted. (Auth Status: %ld)", (long)status);
-            [self displayBluetoothAlert];
-            // ? Restricted meaning (According to Apple); In this state, the user can’t change the Bluetooth authorization status, possibly due to active restrictions such as parental controls.
-            break;
-    }
+//. Model identifier for debugging purposes.
+- (NSString *)getMacModel {
+    NSTask *cmd = [[NSTask alloc] init];
+    [cmd setLaunchPath:@"/usr/sbin/sysctl"];
+    [cmd setArguments:@[@"-n", @"hw.model"]];
+    NSPipe *pipe = [NSPipe pipe];
+    [cmd setStandardOutput:pipe];
+    NSFileHandle *fileHandle = [pipe fileHandleForReading];
+    [cmd launch];
+    NSData *data = [fileHandle readDataToEndOfFile];
+    NSString *resultofcmd = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    resultofcmd = [resultofcmd stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    return resultofcmd;
 }
 
 @end
-// todo UI stuff
