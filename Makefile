@@ -1,13 +1,13 @@
 #
-#  Makefile.mk
-#  LinkLock
+#.  Makefile.mk
+#.  LinkLock
 #
-#  Created by Turann_ on 7.03.2024 at 00:42
+#. Created by Turann_ on 7.03.2024 at 00:42
 #
 appname := LinkLock
 execname := LinkLock
 identifier := xyz.turannul.LinkLock
-version := 0.0.1 - (1)
+version := 0.0.1
 execpath := build/LinkLock.app/Contents/MacOS
 plistpath := build/LinkLock.app/Contents/
 
@@ -47,11 +47,10 @@ $(execpath)/$(execname): linklock/main.m linklock/AppDelegate.m
 	@printf '    <key>NSBluetoothAlwaysUsageDescription</key>\n' >> $(plistpath)/Info.plist
 	@printf '    <string>LinkLock observer requires Bluetooth in order to monitor device</string>\n' >> $(plistpath)/Info.plist
 	@printf '    <key>NSHumanReadableCopyright</key>\n' >> $(plistpath)/Info.plist
-	@printf '    <string>Copyright © 2023 Turann_. All rights reserved.</string>\n' >> $(plistpath)/Info.plist
+	@printf '    <string>Copyright © 2024 Turann_. All rights reserved.</string>\n' >> $(plistpath)/Info.plist
 	@printf '</dict>\n' >> $(plistpath)/Info.plist
 	@printf '</plist>\n' >> $(plistpath)/Info.plist
-	@clang -framework Cocoa -framework IOKit -framework CoreBluetooth -o $(execpath)/$(execname) linklock/main.m linklock/AppDelegate.m && printf "Build successful: $(version)\n" || printf "Build failed!\n"
-
+	@clang -framework Cocoa -framework IOKit -framework CoreBluetooth -o $(execpath)/$(execname) linklock/main.m linklock/AppDelegate.m && printf "Build successful version: $(version)\n" || printf "Build unsuccessful!\n"
 c:
 	rm -rfv build/
 
