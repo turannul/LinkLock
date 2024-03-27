@@ -1,5 +1,5 @@
 //
-//.  AppDelegate.h
+//.  LL.h
 //.  LinkLock
 //
 //.  Created by Turann_ on 7.03.2024 at 23:42

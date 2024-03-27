@@ -1,11 +1,11 @@
 //
-//  AppDelegate.m
+//  LL.m
 //  LinkLock
 //
 //  Created by Turann_ on 7.03.2024 at 02:52
 //
 
-#import "AppDelegate.h"
+#import "LL.h"
 
 @implementation LinkLock
 - (instancetype)init { return self; }
