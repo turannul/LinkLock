@@ -5,13 +5,13 @@
 //  Created by Turann_ on 6.03.2024.
 //
 
-#import "AppDelegate.h"
+#import "LL.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSApplication *application = [NSApplication sharedApplication];
         LinkLock *app = [[LinkLock alloc] init];
-        [application setDelegate:app]; // corrected delegate assignment
+        [application setDelegate:app];
         return NSApplicationMain(argc, argv);
     }
 }
