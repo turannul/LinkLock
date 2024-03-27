@@ -13,7 +13,7 @@ plistpath := build/LinkLock.app/Contents/
 
 all: $(execpath)/$(execname)
 
-$(execpath)/$(execname): linklock/main.m linklock/AppDelegate.m
+$(execpath)/$(execname): linklock/main.m linklock/LL.m
 	rm -rf build/
 	mkdir -p $(execpath)
 	@printf '<?xml version="1.0" encoding="UTF-8"?>\n' > $(plistpath)/Info.plist
@@ -50,7 +50,7 @@ $(execpath)/$(execname): linklock/main.m linklock/AppDelegate.m
 	@printf '    <string>Copyright © 2024 Turann_. All rights reserved.</string>\n' >> $(plistpath)/Info.plist
 	@printf '</dict>\n' >> $(plistpath)/Info.plist
 	@printf '</plist>\n' >> $(plistpath)/Info.plist
-	@clang -framework Cocoa -framework IOKit -framework CoreBluetooth -o $(execpath)/$(execname) linklock/main.m linklock/AppDelegate.m && printf "Build successful version: $(version)\n" || printf "Build unsuccessful!\n"
+	@clang -framework Cocoa -framework IOKit -framework CoreBluetooth -o $(execpath)/$(execname) linklock/main.m linklock/LL.m && printf "Build successful version: $(version)\n" || printf "Build unsuccessful!\n"
 c:
 	rm -rfv build/
 
