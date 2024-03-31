@@ -14,6 +14,9 @@ struct DeviceRow: View {
         HStack {
             Image(systemName: imageName)
                 .foregroundColor(isSelected ? .accentColor : .gray)
+                .frame(width: 20, height: 20) // Adjust frame size properly.
+                //.font(.system(size: 14)) // Set size accordingly to frame size property.
+                .aspectRatio(contentMode: .fit) // Or we could fit images in frame, ngl swift is easy lol.
             Text(deviceName)
             Spacer()
             Toggle("", isOn: $isSelected)
