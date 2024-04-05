@@ -84,15 +84,9 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
-    BOOL hasValidName = peripheral.name != nil && ![peripheral.name isEqualToString:@"null"]; //. Memory safety included.
-    // * If has valid name and hide is Enabled show devices, otherwise don't show/log
-    BOOL hideUnidentified = YES; //[[NSUserDefaults standardUserDefaults] boolForKey:@"hideUnidentified"]; // * Normally this has to be enabled in settings, default also YES;
-    if (hasValidName && hideUnidentified) { // Both has to be true in order to hide Unknown Devices.
-            NSLog(@"Discovered device: %@, ID: %@, SQ: %@", peripheral.name, peripheral.identifier.UUIDString, RSSI); // ? RSSI = Signal Strength
-        } /* else {
-            NSLog(@"Ignoring unknown devices");
-        } */
-}
+    BOOL hasValidName = peripheral.name != nil && ![peripheral.name isEqualToString:@"null"]; // * pointer safety incl.
+    if (hasValidName) { NSLog(@"Discovered device: %@, ID: %@, SQ: %@", peripheral.name, peripheral.identifier.UUIDString, RSSI); } // * RSSI (Received Signal Strength Indication) also known as "signal strength"
+    }
 
 
 - (BOOL)hasAccessibilityPermission {
