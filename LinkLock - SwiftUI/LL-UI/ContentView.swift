@@ -45,10 +45,10 @@ struct ContentView: View {
             }
             HStack {
                 Image(systemName: "info.circle").foregroundColor(.accentColor)
-                Text("If your device isn't listed, try pairing it in system settings.").font(.footnote)
+                Text("If your device isn't listed, try pairing it in system preferences.").font(.footnote)
 					.foregroundColor(.gray)
             }
-			Button(action: { print("Selected Devices:", selectedDevices) }) { Text("Finish Setup") }.disabled(selectedDevices.isEmpty)
+			Button(action: { print("Selected Devices:", selectedDevices) }) { Text("Confirm")}.disabled(selectedDevices.isEmpty)
         }
         .padding()
     }
