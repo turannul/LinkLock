@@ -77,7 +77,7 @@ struct ContentView: View {
 struct Device: Identifiable {
     let id = UUID()
     let name: String
-    let imageName: String
+    let imageName: String // imagename should be determined by system somehow?
 }
 
 struct ContentView_Previews: PreviewProvider {
