@@ -45,7 +45,7 @@ $(execpath)/$(execname): linklock/main.m linklock/LL.m
 	@printf '    <key>NSBluetoothPeripheralUsageDescription</key>\n' >> $(plistpath)/Info.plist
 	@printf '    <string>Bluetooth is required to use LinkLock</string>\n' >> $(plistpath)/Info.plist
 	@printf '    <key>NSBluetoothAlwaysUsageDescription</key>\n' >> $(plistpath)/Info.plist
-	@printf '    <string>LinkLock observer requires Bluetooth in order to monitor device</string>\n' >> $(plistpath)/Info.plist
+	@printf '    <string></string>\n' >> $(plistpath)/Info.plist
 	@printf '    <key>NSHumanReadableCopyright</key>\n' >> $(plistpath)/Info.plist
 	@printf '    <string>Copyright © 2024 Turann_. All rights reserved.</string>\n' >> $(plistpath)/Info.plist
 	@printf '</dict>\n' >> $(plistpath)/Info.plist

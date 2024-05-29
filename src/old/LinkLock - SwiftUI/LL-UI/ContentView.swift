@@ -61,6 +61,7 @@ struct ContentView: View {
 			Device(name: "Turann_'s iPhone_XS", imageName: "iphone"),
             Device(name: "Turann_'s Watch S4", imageName: "applewatch"),
             Device(name: "Turann_'s Beats Studio Buds", imageName: "beats.studiobudsplus"),
+			Device(name: "45 TU 420", imageName: "car.fill"),
 			Device(name: "Turann_'s AirPods I", imageName: "airpods"),
 			Device(name: "Turann_'s AirPods II", imageName: "airpods"),
 			Device(name: "Turann_'s AirPods III", imageName: "airpods.gen3"),

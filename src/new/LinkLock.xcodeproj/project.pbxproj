@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		42325FFA2BFD0948002DF1CD /* LinkLockAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42325FF92BFD0948002DF1CD /* LinkLockAppDelegate.swift */; };
+		42325FFC2BFD138B002DF1CD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42325FFB2BFD138B002DF1CD /* AppKit.framework */; };
+		42D446392BF5686300F1D3AC /* LinkLockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D446382BF5686300F1D3AC /* LinkLockApp.swift */; };
+		42D4463B2BF5686300F1D3AC /* LinkLockUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D4463A2BF5686300F1D3AC /* LinkLockUI.swift */; };
+		42D4463D2BF5686A00F1D3AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D4463C2BF5686A00F1D3AC /* Assets.xcassets */; };
+		42D446402BF5686A00F1D3AC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D4463F2BF5686A00F1D3AC /* Preview Assets.xcassets */; };
+		42D446672BF56E5E00F1D3AC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D446662BF56E5E00F1D3AC /* CoreBluetooth.framework */; };
+		42D446692BF56E6500F1D3AC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D446682BF56E6500F1D3AC /* Cocoa.framework */; };
+		42D4466B2BF56E6B00F1D3AC /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D4466A2BF56E6B00F1D3AC /* ApplicationServices.framework */; };
+		42D4466D2BF56E7400F1D3AC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D4466C2BF56E7400F1D3AC /* SwiftUI.framework */; };
+		42D446742BF574F800F1D3AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D446732BF574F800F1D3AC /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		42325FF92BFD0948002DF1CD /* LinkLockAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkLockAppDelegate.swift; sourceTree = "<group>"; };
+		42325FFB2BFD138B002DF1CD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		42D446352BF5686300F1D3AC /* LinkLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42D446382BF5686300F1D3AC /* LinkLockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLockApp.swift; sourceTree = "<group>"; };
+		42D4463A2BF5686300F1D3AC /* LinkLockUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLockUI.swift; sourceTree = "<group>"; };
+		42D4463C2BF5686A00F1D3AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42D4463F2BF5686A00F1D3AC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		42D446412BF5686A00F1D3AC /* LinkLock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkLock.entitlements; sourceTree = "<group>"; };
+		42D446662BF56E5E00F1D3AC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		42D446682BF56E6500F1D3AC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		42D4466A2BF56E6B00F1D3AC /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		42D4466C2BF56E7400F1D3AC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		42D446722BF5742E00F1D3AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		42D446732BF574F800F1D3AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		42D446322BF5686300F1D3AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42D446742BF574F800F1D3AC /* Foundation.framework in Frameworks */,
+				42D4466D2BF56E7400F1D3AC /* SwiftUI.framework in Frameworks */,
+				42D446692BF56E6500F1D3AC /* Cocoa.framework in Frameworks */,
+				42325FFC2BFD138B002DF1CD /* AppKit.framework in Frameworks */,
+				42D4466B2BF56E6B00F1D3AC /* ApplicationServices.framework in Frameworks */,
+				42D446672BF56E5E00F1D3AC /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42D4462C2BF5686300F1D3AC = {
+			isa = PBXGroup;
+			children = (
+				42D446372BF5686300F1D3AC /* LinkLock */,
+				42D446362BF5686300F1D3AC /* Products */,
+				42D446472BF568D000F1D3AC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		42D446362BF5686300F1D3AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42D446352BF5686300F1D3AC /* LinkLock.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		42D446372BF5686300F1D3AC /* LinkLock */ = {
+			isa = PBXGroup;
+			children = (
+				42325FF92BFD0948002DF1CD /* LinkLockAppDelegate.swift */,
+				42D446722BF5742E00F1D3AC /* Info.plist */,
+				42D446382BF5686300F1D3AC /* LinkLockApp.swift */,
+				42D4463A2BF5686300F1D3AC /* LinkLockUI.swift */,
+				42D4463C2BF5686A00F1D3AC /* Assets.xcassets */,
+				42D446412BF5686A00F1D3AC /* LinkLock.entitlements */,
+				42D4463E2BF5686A00F1D3AC /* Preview Content */,
+			);
+			path = LinkLock;
+			sourceTree = "<group>";
+		};
+		42D4463E2BF5686A00F1D3AC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				42D4463F2BF5686A00F1D3AC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		42D446472BF568D000F1D3AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42325FFB2BFD138B002DF1CD /* AppKit.framework */,
+				42D446732BF574F800F1D3AC /* Foundation.framework */,
+				42D4466C2BF56E7400F1D3AC /* SwiftUI.framework */,
+				42D4466A2BF56E6B00F1D3AC /* ApplicationServices.framework */,
+				42D446682BF56E6500F1D3AC /* Cocoa.framework */,
+				42D446662BF56E5E00F1D3AC /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42D446342BF5686300F1D3AC /* LinkLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42D446442BF5686A00F1D3AC /* Build configuration list for PBXNativeTarget "LinkLock" */;
+			buildPhases = (
+				42D446312BF5686300F1D3AC /* Sources */,
+				42D446322BF5686300F1D3AC /* Frameworks */,
+				42D446332BF5686300F1D3AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkLock;
+			productName = LinkLock;
+			productReference = 42D446352BF5686300F1D3AC /* LinkLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		42D4462D2BF5686300F1D3AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					42D446342BF5686300F1D3AC = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 42D446302BF5686300F1D3AC /* Build configuration list for PBXProject "LinkLock" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 42D4462C2BF5686300F1D3AC;
+			productRefGroup = 42D446362BF5686300F1D3AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42D446342BF5686300F1D3AC /* LinkLock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		42D446332BF5686300F1D3AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42D446402BF5686A00F1D3AC /* Preview Assets.xcassets in Resources */,
+				42D4463D2BF5686A00F1D3AC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		42D446312BF5686300F1D3AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42D4463B2BF5686300F1D3AC /* LinkLockUI.swift in Sources */,
+				42D446392BF5686300F1D3AC /* LinkLockApp.swift in Sources */,
+				42325FFA2BFD0948002DF1CD /* LinkLockAppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		42D446422BF5686A00F1D3AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		42D446432BF5686A00F1D3AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		42D446452BF5686A00F1D3AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = LinkLock/LinkLock.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"LinkLock/Preview Content\"";
+				DEVELOPMENT_TEAM = 3KJK45Y626;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LinkLock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LinkLock;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required for monitoring devices.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2024 Turann";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.turannul.LinkLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		42D446462BF5686A00F1D3AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = LinkLock/LinkLock.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"LinkLock/Preview Content\"";
+				DEVELOPMENT_TEAM = 3KJK45Y626;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LinkLock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LinkLock;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required for monitoring devices.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2024 Turann";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.turannul.LinkLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42D446302BF5686300F1D3AC /* Build configuration list for PBXProject "LinkLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42D446422BF5686A00F1D3AC /* Debug */,
+				42D446432BF5686A00F1D3AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42D446442BF5686A00F1D3AC /* Build configuration list for PBXNativeTarget "LinkLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42D446452BF5686A00F1D3AC /* Debug */,
+				42D446462BF5686A00F1D3AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 42D4462D2BF5686300F1D3AC /* Project object */;
+}
